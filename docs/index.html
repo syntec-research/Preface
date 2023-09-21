@@ -1,14 +1,715 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Preface: A Data-driven Volumetric Prior for Few-shot Ultra High-resolution
+    <meta name="description"
+          content="Preface: A Data-driven Volumetric Prior for Few-shot Ultra High-resolution
         Face Synthesis">
     <meta name="keywords" content="Preface">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Preface: A Data-Driven Volumetric Prior for Few-shot Ultra High-resolution
         Face Synthesis</title>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 </head>
+
+<style>
+    .rotate_image {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        transform: rotate(270deg);
+        margin: 100px 0 50px 0;
+    }
+</style>
 <body>
-<p>Hello Preface!</p>
+
+<!-- Title -->
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Preface: A Data-driven Volumetric Prior for Few-shot Ultra
+                        High-resolution
+                        Face Synthesis</h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><a href="https://ait.ethz.ch/people/buehler" target="_blank">Marcel C. Bühler</a><sup>1,2</sup>,</span>
+                        <span class="author-block"><a href="https://krips89.github.io/profile_page/" target="_blank">Kripasindhu Sarkar</a><sup>2</sup>,</span>
+                        <span class="author-block"><a
+                                href="https://scholar.google.com/citations?user=USYxdJ4AAAAJ&hl=en&oi=ao"
+                                target="_blank">Tanmay Shah</a><sup>2</sup>,</span>
+                        <span class="author-block"><a href="https://ait.ethz.ch/people/lig"
+                                                      target="_blank">Gengyan Li</a><sup>1,2</sup>,</span>
+                        <span class="author-block"><a
+                                href="https://scholar.google.com/citations?user=pe5XLTEAAAAJ&hl=en" target="_blank">Daoye Wang</a><sup>2</sup>,</span>
+                        <span class="author-block"><a
+                                href="https://scholar.google.com/citations?user=mTTsIr4AAAAJ&hl=en" target="_blank">Leonhard Helminger</a><sup>2</sup>,</span>
+                        <span class="author-block"><a
+                                href="https://scholar.google.com/citations?user=dznX1DMAAAAJ&hl=es" target="_blank">Sergio Orts-Escolano</a><sup>2</sup>,</span>
+                        <span class="author-block"><a
+                                href="https://scholar.google.com/citations?user=sY8lt7AAAAAJ&hl=en" target="_blank">Dmitry Lagun</a><sup>2</sup>,</span>
+                        <span class="author-block"><a href="https://ait.ethz.ch/people/hilliges" target="_blank">Otmar Hilliges</a><sup>1</sup>,</span>
+                        <span class="author-block"><a href="https://thabobeeler.com/"
+                                                      target="_blank">Thabo Beeler</a><sup>2</sup>,</span>
+                        <span class="author-block"><a href="https://www.meka.page/"
+                                                      target="_blank">Abhimitra Meka</a><sup>2</sup></span>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>ETH Zurich,</span>
+                            <span class="author-block"><sup>2</sup>Google</span>
+                        </div>
+                    </div>
+                    <div class="is-size-5 ">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                              <a href="https://drive.google.com/file/d/1AZmkZNnmV2oN3mvonS0la9Yh1g5aj6uC/view?usp=sharing"
+                                 class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false"
+                                         data-prefix="fas" data-icon="file-pdf" role="img"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor"
+                                                                                      d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                                </span>
+                                <span>Paper (6.5 MB)</span>
+                              </a>
+                            </span><span class="link-block">
+                              <a href="https://drive.google.com/file/d/1bWoeQRyAYMFmcu4IF0dZ44G_k8B2Bdqt/view?usp=sharing"
+                                 class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false"
+                                         data-prefix="fas" data-icon="file-pdf" role="img"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor"
+                                                                                      d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                                </span>
+                                <span>Paper (63 MB)</span>
+                              </a>
+                            </span>
+                            <span class="link-block">
+                              <a href="https://drive.google.com/file/d/1YCIhlx-hWg8xbK3kA_zuGx6Sw_N9FUSb/view?usp=sharing"
+                                 class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false"
+                                         data-prefix="fas" data-icon="file-pdf" role="img"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor"
+                                                                                      d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                                </span>
+                                <span>Supplementary Doc (1 MB)</span>
+                              </a>
+                            </span>
+                            <span class="link-block">
+                              <a href="https://drive.google.com/file/d/1odgOlMgTAVPNkyj2eDqc75viJc96qtBv/view?usp=sharing"
+                                 class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false"
+                                         data-prefix="fas" data-icon="file-pdf" role="img"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor"
+                                                                                      d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                                </span>
+                                <span>Extended Website (72 MB)</span>
+                              </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    NeRFs have enabled highly realistic synthesis of human faces including complex appearance and
+                    reflectance effects of hair and skin.
+                    These methods typically require a large number of multi-view input images, making the process
+                    hardware intensive and cumbersome, limiting applicability to unconstrained settings.
+                    We propose a novel volumetric human face prior that enables the synthesis of ultra high-resolution
+                    novel views of subjects that are not part of the prior's training distribution.
+                    This prior model consists of an identity-conditioned NeRF, trained on a dataset of low-resolution
+                    multi-view images of diverse humans with known camera calibration.
+                    A simple sparse landmark-based 3D alignment of the training dataset allows our model to learn a
+                    smooth latent space of geometry and appearance despite a limited number of training identities.
+                    A high-quality volumetric representation of a novel subject can be obtained by model fitting to 2 or
+                    3 camera views of arbitrary resolution. Importantly, our method requires as few as two views of
+                    casually captured images as input at inference time.
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths text-left">
+                <p><i>We recommend using Chrome to correctly display the videos. If a video doesn't play automatically,
+                    click the play button.</i></p>
+                <p><i>Please note that we can only show limited high-resolution video results on this website. Please
+                    download the extended website for more results.</i></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Studio -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <div class="content">
+                <h2 class="title is-3">Ultra High-resolution Synthesis from Studio Captures</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Given 3 views of a held-out test subject from our dataset, we show high-quality novel view
+                        synthesis.
+                        Note the 3D consistent rendering of details such as hair strands, eye-lashes, and view-dependent
+                        effects for example on the forehead.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-centered has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Input Views (4Kx6K)</h4>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="rotate_image">
+                                <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/studio/0rV_gt_00_512x512.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="rotate_image">
+                                <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/studio/0rV_gt_01_512x512.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="rotate_image">
+                                <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/studio/0rV_gt_02_512x512.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Novel View Synthesis - cropped to center</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="0rV_rgb_crop" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/studio/0rV_rgb_crop.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Novel View Synthesis (2Kx2K)</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/studio/0rV_rgb_2K.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Facescape -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <div class="content">
+                <h2 class="title is-3 has-text-centered">High-resolution Synthesis on FaceScape Dataset</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We show novel view synthesis results at 2K resolution using only two input views of subjects
+                        from the FaceScape dataset.
+                        Note that our prior model was trained on a different dataset&mdash;these results represent the
+                        out-of-distribution setting.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-centered has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Input Views</h4>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <img class="small-img"
+                                 src="https://files.ait.ethz.ch/projects/preface/web/static/images/facescape/344_01_05.jpg"
+                                 alt="">
+                        </div>
+                        <div class="column">
+                            <img class="small-img"
+                                 src="https://files.ait.ethz.ch/projects/preface/web/static/images/facescape/344_01_22.jpg"
+                                 alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Novel View Synthesis</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/facescape/2k_344.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- In-the-wild -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <div class="content">
+                <h2 class="title is-3 has-text-centered">In-the-wild Captures</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We demonstrate the generalization capability of our method to in-the-wild mobile camera
+                        captures. With just 2 input views, our method is able to genenerate highly consistent and
+                        photorealistic free-view renders of a subject. Our method not only reconstructs coherent
+                        geometry, it also learns to interpolate view-dependent specularities, such as on the hair and
+                        skin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-centered has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Input Views</h4>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/inthewild/inthewild_01_cam00.jpg"
+                                 alt="">
+                        </div>
+                        <div class="column">
+                            <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/inthewild/inthewild_01_cam01.jpg"
+                                 alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Novel View Synthesis</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="01a_rgb" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/inthewild/01a_rgb.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Input Views</h4>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/inthewild/inthewild_03_cam01.jpg"
+                                 alt="">
+                        </div>
+                        <div class="column">
+                            <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/inthewild/inthewild_03_cam00.jpg"
+                                 alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Novel View Synthesis</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="03a_rgb" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/inthewild/03a_rgb.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Prior Model -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <div class="content">
+                <h2 class="title is-3 has-text-centered">Prior Model Latent Space</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Alignment of faces in our dataset allows us to learn a continuous latent space, where the
+                        embeddings of
+                        training identities can be interpolated to achieve plausible intermediate identities.
+                        Note that we do not train our model in an adversarial manner but only with reconstruction
+                        losses.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="column is-centered has-text-centered">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="content">
+                    <h4 class="has-text-centered">Random Sampling</h4>
+                </div>
+                <div class="item">
+                    <video poster="" autoplay controls muted loop playsinline height="100%">
+                        <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/studio/prior/pca.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <h4 class="has-text-centered">Interpolation</h4>
+                </div>
+                <div class="item">
+                    <video poster="" autoplay controls muted loop playsinline height="100%">
+                        <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/studio/prior/interpolation.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Geometry -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <div class="content">
+                <h2 class="title is-3 has-text-centered">Geometry</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We visualise the image-space geometry estimated by our method. Note the 3D consistent depth and
+                        normals. The normals in the hair have a grey appearance due to transparent density.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-centered has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Input Views</h4>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="rotate_image">
+                                <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/studio/934_gt_009_256x256.jpg"
+                                     alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="rotate_image">
+                                <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/studio/934_gt_003_256x256.jpg"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Colour</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="03b_rgb" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/geo/geo_rgb.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Depth</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/geo/geo_depth.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Normals</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/geo/geo_normals.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h4 class="has-text-centered">Foreground Matte</h4>
+                    </div>
+                    <div class="item">
+                        <video poster="" autoplay controls muted loop playsinline height="100%">
+                            <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/geo/geo_alpha.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Limitations -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <div class="content">
+                <h2 class="title is-3 has-text-centered">Limitations</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        While our method achieves state-of-the-art results in high-resolution synthesis of
+                        faces, it struggles with strong expressions and large accessories. This is due to
+                        limited representation in our training dataset. The training dataset only contains
+                        neutral faces and none of the subjects was wearing voluminous clothing like sweaters or jackets.
+                        This limitation could potentially be mitigated by training a more diverse prior model
+                        that includes those modalities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-centered has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h3 class="has-text-centered">Grin</h3>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="content">
+                                <h4 class="has-text-centered">Input Views</h4>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/facescape/122_16_47.jpg"
+                                         alt="">
+                                </div>
+                                <div class="column">
+                                    <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/facescape/122_16_43.jpg"
+                                         alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="content">
+                                <h4 class="has-text-centered">Novel View Synthesis</h4>
+                            </div>
+                            <div class="item">
+                                <video poster="" id="122_grin_cam35,40_rgb" autoplay controls muted loop playsinline
+                                       height="100%">
+                                    <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/facescape/122_grin_cam35,40_rgb.mp4"
+                                            type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <h3 class="has-text-centered">Cap and Eyeglasses</h3>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="content">
+                                <h4 class="has-text-centered">Input Views</h4>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/inthewild/282_cam00.jpg"
+                                         alt="">
+                                </div>
+                                <div class="column">
+                                    <img src="https://files.ait.ethz.ch/projects/preface/web/static/images/inthewild/282_cam01.jpg"
+                                         alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="content">
+                                <h4 class="has-text-centered">Novel View Synthesis</h4>
+                            </div>
+                            <div class="item">
+                                <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+                                    <source src="https://files.ait.ethz.ch/projects/preface/web/static/videos/limitations/282_rgb.mp4"
+                                            type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Citation -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        If you find this work useful, please consider citing:
+                        <pre class="citation">@inproceedings{buehler2023preface,
+          title={Preface: A Data-driven Volumetric Prior for Few-shot Ultra High-resolution Face Synthesis},
+          author={Marcel C. Buehler and Kripasindhu Sarkar and Tanmay Shah and Gengyan Li and Daoye Wang and Leonhard Helminger
+                            and Sergio Orts-Escolano and Dmitry Lagun and Otmar Hilliges and Thabo Beeler and Abhimitra Meka},
+          booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+          year={2023}}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br><br>
+<hr style="width:30%; margin: auto;"/>
+
+<!-- Acknowledgements -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="column is-centered">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <div class="content">
+                            <h2 class="has-text-centered">Acknowledgements</h2>
+                        </div>
+                        <div class="content">
+                            <p>We thank
+                                <a href="https://emreaksan.github.io/" target="_blank" title="Emre Aksan">Emre Aksan</a>
+                                for insightful discussions and
+                                <a href="https://malteprinzler.github.io/" target="_blank" title="Emre Aksan">Malte
+                                    Prinzler</a>
+                                for sharing <a href="https://malteprinzler.github.io/projects/diner/diner.html"
+                                               target="_blank" title="DINER project page">DINER</a> results.
+                            </p>
+                            <p>
+                                We are grateful to <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+                                for
+                                providing the
+                                website template.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                            Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<script>
+</script>
+
+
 </body>
 </html>
